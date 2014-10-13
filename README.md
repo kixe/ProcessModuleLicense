@@ -43,7 +43,7 @@ You have 2 Options.
 Displayed translatable linktext:  *read more*
 
 ## Screenshot
-![screenshot of module info](modulelicense.jpg "screenshot")
+![screenshot of module info](https://processwire.com/talk/uploads/monthly_10_2014/post-1246-0-01061500-1413196075.jpg "screenshot")
 
 ## Wishlist Roadmap
 Implementation of this feature in core would be much easier. Read more:
