@@ -5,7 +5,7 @@
  *
  * 
  * Display License Name and Link to further license information if set in modules info array
- * link could be external (full url) or internal (just the filename lixe license.txt) to a license textfile in the modules directory 
+ * link could be external (full url) or internal to a license textfile in the modules directory 
  * 
  * made by kixe (Christoph Thelen) 05.10.14
  * Licensed under GNU/GPL v3
@@ -60,8 +60,7 @@ class ProcessModuleLicense extends WireData implements Module {
 
 		$moduleName = $this->sanitizer->name($moduleName); 
 		$infoarray = $this->modules->getModuleInfoVerbose($moduleName);
-		$dirpath = substr($this->modules->getModuleFile($moduleName,true),0,-6+strlen($moduleName));
-		if(substr($infoarray['hreflicense'],0,7) != 'http://') $infoarray['hreflicense'] = $dirpath.$infoarray['hreflicense'];
+		if(substr($infoarray['hreflicense'],0,7) != 'http://') $infoarray['hreflicense'] = $this->fuel('config')->urls->$this.$infoarray['hreflicense'];
 		return $infoarray;
 	}
 }
