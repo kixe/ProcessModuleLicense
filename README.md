@@ -3,9 +3,6 @@ MODULE LICENSE INFO
 
 For Module Developers. This module makes license information visible in module info if set in ModuleInfo array
 
-## Installation
-as usual
-
 ## Use
 if installed the two elements *license* and *hreflicense* could be added to any module.
 
