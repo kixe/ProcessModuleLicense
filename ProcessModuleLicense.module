@@ -7,7 +7,8 @@
  * Display License Name and Link to further license information if set in modules info array
  * link could be external (full url) or internal (just the filename lixe license.txt) to a license textfile in the modules directory 
  * 
- * made by kixe 12.10.14
+ * made by kixe (Christoph Thelen) 05.10.14
+ * Licensed under GNU/GPL v3
  * 
  * 
  * ProcessWire 2.x 
@@ -28,8 +29,8 @@ class ProcessModuleLicense extends WireData implements Module {
 			'permission' => 'module-admin', // needed to hook in ProcessModule
 			'singular' => true, 
 			'autoload' => true, 
-			'license' => 'CC-BY',
-			'hreflicense' => 'http://creativecommons.org/licenses/by/4.0/'
+			'license' => 'GNU-GPLv3',
+			'hreflicense' => 'http://www.gnu.org/licenses/gpl-3.0.html'
 			);
 	}
 
