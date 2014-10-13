@@ -45,7 +45,7 @@ Displayed translatable linktext:  *read more*
 ## Screenshot
 ![screenshot of module info](https://processwire.com/talk/uploads/monthly_10_2014/post-1246-0-01061500-1413196075.jpg "screenshot")
 
-## Wishlist Roadmap
+## Wishlist & Roadmap
 Implementation of this feature in core would be much easier. Read more:
 
 [processwire.com/talk/topic/5906-display-module-license-in-modules-directory](https://processwire.com/talk/topic/5906-display-module-license-in-modules-directory/?p=76308)
