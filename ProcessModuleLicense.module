@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * ProcessWire Module Module-License-Info
+ *
+ * 
+ * Display License Name and Link to further license information if set in modules info array
+ * link could be external (full url) or internal (just the filename lixe license.txt) to a license textfile in the modules directory 
+ * 
+ * made by kixe 12.10.14
+ * 
+ * 
+ * ProcessWire 2.x 
+ * Copyright (C) 2013 by Ryan Cramer 
+ * Licensed under GNU/GPL v2, see LICENSE.TXT
+ * 
+ * http://processwire.com
+ *
+ */
+class ProcessModuleLicense extends WireData implements Module {
+
+	public static function getModuleInfo() {
+		return array(
+			'title' => __('Modules License Info'),         
+			'summary' => __('Add License Information to Module Info'),
+			'version' => 100, 
+			'author' => 'kixe',
+			'permission' => 'module-admin', // needed to hook in ProcessModule
+			'singular' => true, 
+			'autoload' => true, 
+			'license' => 'CC-BY',
+			'hreflicense' => 'http://creativecommons.org/licenses/by/4.0/'
+			);
+	}
+
+	/**
+	 *
+	 * hooky dooky
+	 */
+	public function init() {
+		$this->addHookAfter('ProcessModule::executeEdit', $this, 'hookLicense');
+	}
+
+	protected function hookLicense($event) {
+		$info = $this->getInfo();
+		if ($info['license']) {
+			$hreflicense = ($info['hreflicense'])?' - '.'<a href="'.$info['hreflicense'].'">'.__('read more').'</a>':'';
+			$license = $info['license'].$hreflicense;
+			$event->return = str_replace("\t\t\t\t</tbody>\n\t\t\t</table>","\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>".__('License')."</td>\n\t\t\t\t\t\t\t<td>$license</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>",$event->return);
+		}
+	}
+
+	protected function getInfo() {
+		$infoarray = null; 
+		$moduleName = '';
+
+		if(isset($_POST['name'])) $moduleName = $_POST['name']; 
+			else if(isset($_GET['name'])) $moduleName = $_GET['name'];
+
+		$moduleName = $this->sanitizer->name($moduleName); 
+		$infoarray = $this->modules->getModuleInfoVerbose($moduleName);
+		$dirpath = substr($this->modules->getModuleFile($moduleName,true),0,-6+strlen($moduleName));
+		if(substr($infoarray['hreflicense'],0,7) != 'http://') $infoarray['hreflicense'] = $dirpath.$infoarray['hreflicense'];
+		return $infoarray;
+	}
+}
