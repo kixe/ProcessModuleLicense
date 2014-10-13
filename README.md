@@ -20,7 +20,9 @@ public static function getModuleInfo() {
 }
 ```
 #### license
-Shortcut of license name. I recommend to use a consistent Syntax. Some Examples:
+Shortcut of license name. I recommend to use a consistent Syntax.
+
+Some Examples:
 
 * GNU-GPL
 * GNU-GPLv2
@@ -31,6 +33,7 @@ Shortcut of license name. I recommend to use a consistent Syntax. Some Examples:
 	
 #### hreflicense
 Link to detailed license information. Will only be displayed if license is set.
+
 You have 2 Options.
 
 * absolute url like
