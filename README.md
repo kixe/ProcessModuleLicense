@@ -4,7 +4,7 @@ MODULE LICENSE INFO
 For Module Developers. This module makes license information visible in module info if set in ModuleInfo array
 
 ## Use
-if installed the two elements *license* and *hreflicense* could be added to any module.
+if installed the two elements **license** and **hreflicense** could be added to any module.
 
 ```
 public static function getModuleInfo() {
@@ -40,7 +40,7 @@ You have 2 Options.
 
 	`'hreflicense' => 'license.txt'`
 
-Displayed translatable linktext:  *read more*
+Displayed translatable linktext:  **read more**
 
 ## Screenshot
 ![screenshot of module info](https://processwire.com/talk/uploads/monthly_10_2014/post-1246-0-01061500-1413196075.jpg "screenshot")
@@ -51,7 +51,7 @@ Implementation of this feature in core would be much easier. Read more:
 [processwire.com/talk/topic/5906-display-module-license-in-modules-directory](https://processwire.com/talk/topic/5906-display-module-license-in-modules-directory/?p=76308)
 
 ## License
-[GNU_GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)
+[GNU-GPLv3](http://www.gnu.org/licenses/gpl-3.0.html)
 
 ## Author
 kixe (Christoph Thelen)
