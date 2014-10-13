@@ -7,7 +7,7 @@
  * Display License Name and Link to further license information if set in modules info array
  * link could be external (full url) or internal to a license textfile in the modules directory 
  * 
- * made by kixe (Christoph Thelen) 05.10.14
+ * made by kixe (Christoph Thelen) 12.10.14
  * Licensed under GNU/GPL v3
  * 
  * 
@@ -42,6 +42,10 @@ class ProcessModuleLicense extends WireData implements Module {
 		$this->addHookAfter('ProcessModule::executeEdit', $this, 'hookLicense');
 	}
 
+	/**
+	 * @return string (markup AdminDataTable)
+	 * 
+	 */
 	protected function hookLicense($event) {
 		$info = $this->getInfo();
 		if ($info['license']) {
@@ -51,7 +55,11 @@ class ProcessModuleLicense extends WireData implements Module {
 		}
 	}
 
-	protected function getInfo() {
+	/**
+	 * @return array
+	 * 
+	 */
+	 protected function getInfo() {
 		$infoarray = null; 
 		$moduleName = '';
 
