@@ -24,7 +24,7 @@ class ProcessModuleLicense extends WireData implements Module {
 		return array(
 			'title' => __('Modules License Info'),         
 			'summary' => __('Add License Information to Module Info'),
-			'version' => 100, 
+			'version' => 101, 
 			'author' => 'kixe',
 			'permission' => 'module-admin', // needed to hook in ProcessModule
 			'singular' => true, 
