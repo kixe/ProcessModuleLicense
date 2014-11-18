@@ -51,7 +51,7 @@ class ProcessModuleLicense extends WireData implements Module {
 		if ($info['license']) {
 			$hreflicense = ($info['hreflicense'])?' - '.'<a href="'.$info['hreflicense'].'">'.__('read more').'</a>':'';
 			$license = $info['license'].$hreflicense;
-			$p = "@(ModuleInfo)([\s\S]*)(</tbody>)@"; // $2 searchs for linefeeds too doesn't work with .* 
+			$p = "@(ModuleInfo)([\s\S]*)(</tbody>)@"; // $2 searches for linefeeds too, which doesn't work with .* 
 			$r = "$1$2\t<tr>\n\t\t\t<td>".__('License')."</td>\n\t\t\t<td>$license</td>\n\t\t</tr>\n\t$3";
 			$s = $event->return;
 			$event->return = preg_replace($p,$r,$s,1); // limited to 1 replacement
