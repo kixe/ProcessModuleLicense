@@ -51,7 +51,11 @@ class ProcessModuleLicense extends WireData implements Module {
 		if ($info['license']) {
 			$hreflicense = ($info['hreflicense'])?' - '.'<a href="'.$info['hreflicense'].'">'.__('read more').'</a>':'';
 			$license = $info['license'].$hreflicense;
-			$event->return = str_replace("\t\t\t\t</tbody>\n\t\t\t</table>","\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>".__('License')."</td>\n\t\t\t\t\t\t\t<td>$license</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>",$event->return);
+			//$event->return = str_replace("\t\t</tbody>\n</table>","\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>".__('License')."</td>\n\t\t\t\t\t\t\t<td>$license</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>",$event->return);
+			$p = "@(id='ModuleInfo')(.*)(</tbody>)@";
+			$r = "$1$2\n\t\t<tr>\n\t\t\t<td>".__('License')."</td>\n\t\t\t<td>$license</td>\n\t\t</tr>\n\t$3";
+			$s = $event->return;
+			$event->return = preg_replace($p,$r,$s);
 		}
 	}
 
