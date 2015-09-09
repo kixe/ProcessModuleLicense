@@ -9,6 +9,7 @@
  * 
  * made by kixe (Christoph Thelen) 12.10.14
  * Licensed under GNU/GPL v3
+ * added target blank 09.09.15
  * 
  * 
  * ProcessWire 2.x 
@@ -24,7 +25,7 @@ class ProcessModuleLicense extends WireData implements Module {
 		return array(
 			'title' => __('Modules License Info'),         
 			'summary' => __('Add License Information to Module Info'),
-			'version' => 102, 
+			'version' => 103, 
 			'author' => 'kixe',
 			'permission' => 'module-admin', // needed to hook in ProcessModule
 			'singular' => true, 
@@ -49,7 +50,7 @@ class ProcessModuleLicense extends WireData implements Module {
 	protected function hookLicense($event) {
 		$info = $this->getInfo();
 		if (!empty($info['license'])) {
-			$hreflicense = ($info['hreflicense'])?' - '.'<a href="'.$info['hreflicense'].'">'.__('read more').'</a>':'';
+			$hreflicense = ($info['hreflicense'])?' - '.'<a target="_blank" href="'.$info['hreflicense'].'">'.__('read more').'</a>':'';
 			$license = $info['license'].$hreflicense;
 			$p = "@(ModuleInfo)([\s\S]*)(</tbody>)@"; // $2 searches for linefeeds too, which doesn't work with .* 
 			$r = "$1$2\t<tr>\n\t\t\t<td>".__('License')."</td>\n\t\t\t<td>$license</td>\n\t\t</tr>\n\t$3";
