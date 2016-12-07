@@ -7,12 +7,13 @@
  * Display License Name and Link to further license information if set in modules info array
  * link could be external (full url) or internal to a license textfile in the modules directory 
  * 
- * made by kixe (Christoph Thelen) 12.10.14
+ * made by kixe (Christoph Thelen) 2014-10-12
  * Licensed under GNU/GPL v3
- * added target blank 09.09.15
+ * @version 1.0.4
+ * @since 1.0.3 added target blank 2015-09-09
  * 
  * 
- * ProcessWire 2.x 
+ * for ProcessWire 2.x, 3.x
  * Copyright (C) 2013 by Ryan Cramer 
  * Licensed under GNU/GPL v2, see LICENSE.TXT
  * 
